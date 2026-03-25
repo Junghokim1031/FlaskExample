@@ -9,11 +9,23 @@ class BMICalculator:
         self.height = height / 100  # cm에서 m로 변환
 
     def calculate_bmi(self):
-        """BMI 계산: 체중(kg) / 신장^2(m)"""
+        """
+        BMI 계산기 초기화
+
+        :param weight: 체중 (kg)
+        :param height: 신장 (cm)
+        """
         return self.weight / (self.height ** 2)
 
     def get_bmi_category(self):
-        """BMI 범주 반환"""
+        """
+        BMI 계산
+
+        공식:
+            BMI = 체중(kg) / (신장(m) ^ 2)
+
+        :return: BMI 값 (float)
+        """
         bmi = self.calculate_bmi()
         
         if bmi < 18.5:
@@ -28,7 +40,14 @@ class BMICalculator:
             return "고도비만"
 
     def get_result(self):
-        """BMI 결과 반환"""
+        """
+        BMI 계산 결과를 한 번에 반환
+
+        :return: {
+            "bmi": float,
+            "category": str
+        }
+        """
         bmi = self.calculate_bmi()
         category = self.get_bmi_category()
         
